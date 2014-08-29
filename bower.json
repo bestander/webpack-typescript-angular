@@ -1,0 +1,19 @@
+{
+  "name": "webpak-spike",
+  "version": "0.0.0",
+  "authors": [
+    "Konstantin Raev <bestander@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.23"
+  }
+}
