@@ -9,7 +9,7 @@ export function register(_module) {
             link: function (scope, element) {
                 console.log("loaded mainDirective");
             },
-            template: __webpack_require__('raw!./main-directive.html')
+            template: resourceRequire('raw!./main-directive.html')
 
         }
     });

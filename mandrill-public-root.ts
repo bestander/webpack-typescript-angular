@@ -8,8 +8,8 @@ var _module = window.angular.module('Booktrack.Mandrill', [
     'ngRoute'
 ]);
 
-__webpack_require__("script!./bower_components/angular/angular")
-__webpack_require__("script!./bower_components/angular-route/angular-route")
+resourceRequire("script!./bower_components/angular/angular")
+resourceRequire("script!./bower_components/angular-route/angular-route")
 // controllers for router
 ctrl1.register(_module);
 ctrl2.register(_module);
@@ -21,11 +21,11 @@ _module.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         .when('/',
         {
             controller: 'MainController',
-            template: __webpack_require__('raw!./src/main/main-controller.html')
+            template: resourceRequire('raw!./src/main/main-controller.html')
         })
         .when('/studio',
         {
-            template: __webpack_require__('raw!./src/studio/studio-controller.html'),
+            template: resourceRequire('raw!./src/studio/studio-controller.html'),
             controller: 'StudioController'
         });
 
