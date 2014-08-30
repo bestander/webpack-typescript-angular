@@ -1,6 +1,6 @@
 /// <reference path="../../lib.d.ts" />
 
-resourceRequire("style!raw!./main-controller.css");
+resourceRequire("style!raw!stylus!./main-controller.styl");
 import dir = require('./main-directive');
 
 
