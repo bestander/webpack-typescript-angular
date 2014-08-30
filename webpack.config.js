@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./.tmp/mandrill-public-root.js",
+    entry: "./src/mandrill-public-root.js",
     output: {
         path: __dirname,
         filename: "build/build.js"
