@@ -14,6 +14,8 @@
     "grunt-typescript": "^0.3.8",
     "style-loader": "^0.7.1",
     "grunt-string-replace": "^0.2.7",
-    "grunt-text-replace": "^0.3.12"
+    "grunt-text-replace": "^0.3.12",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-clean": "^0.6.0"
   }
 }

@@ -19,15 +19,18 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.initConfig({
         typescript: {
             build: {
-                src: ['mandrill-public-root.ts'],
+                src: ['src/mandrill-public-root.ts'],
                 dest: '.tmp',
                 options: {
                     module: 'amd',
-                    target: 'es5'
+                    target: 'es5',
+                    basePath: 'src'
                 }
             }
         },
@@ -40,8 +43,19 @@ module.exports = function (grunt) {
                     to: 'require'
                 }]
             }
+        },
+        copy: {
+            assets: {
+                files: [
+                    // includes files within path
+                    {expand: true, src: ['**', '!**/*.ts'], dest: '.tmp/', cwd: 'src', filter: 'isFile'}
+                ]
+            }
+        },
+        clean: {
+            all: ['build', '.tmp']
         }
     });
 
-    grunt.registerTask('default', ['typescript', 'replace'])
+    grunt.registerTask('default', ['clean', 'copy', 'typescript', 'replace'])
 };
