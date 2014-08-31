@@ -2,7 +2,7 @@
 
 Just a proof of concept how [webpack](http://webpack.github.io) handles Angular applications written in TypeScript.
 
-See [Blog post](https://medium.com/p/c5127b55ec86) with the explanation what it is about.
+See [Blog post](https://medium.com/@bestander_nz/c5127b55ec86) with the explanation what it is about.
 
 ## Structure
 
