@@ -3,7 +3,6 @@
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-typescript');
-    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-webpack');
 
@@ -22,16 +21,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        replace: {
-            build: {
-                src: ['src/**/*.js'],
-                overwrite: true,
-                replacements: [{
-                    from: 'resourceRequire',
-                    to: 'require'
-                }]
-            }
-        },
         webpack: {
             static: {
                 entry: "./src/mandrill-public-root.js",
@@ -42,5 +31,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean', 'typescript', 'replace', 'webpack'])
+    grunt.registerTask('default', ['clean', 'typescript', 'webpack'])
 };

@@ -13,7 +13,6 @@
     "grunt": "^0.4.5",
     "grunt-typescript": "^0.3.8",
     "style-loader": "^0.7.1",
-    "grunt-text-replace": "^0.3.12",
     "grunt-contrib-clean": "^0.6.0",
     "stylus-loader": "^0.4.0",
     "webpack-dev-server": "^1.5.0",

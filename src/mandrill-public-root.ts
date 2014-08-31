@@ -1,11 +1,10 @@
 /// <reference path="../lib.d.ts" />
 
-
 import ctrl1 = require('./main/main-controller');
 import ctrl2 = require('./studio/studio-controller');
 
-resourceRequire("script!../bower_components/angular/angular");
-resourceRequire("script!../bower_components/angular-route/angular-route");
+require("script!../bower_components/angular/angular");
+require("script!../bower_components/angular-route/angular-route");
 
 var _module = window.angular.module('Booktrack.Mandrill', [
     'ngRoute'
@@ -15,18 +14,16 @@ var _module = window.angular.module('Booktrack.Mandrill', [
 ctrl1.register(_module);
 ctrl2.register(_module);
 
-// TODO see if https://www.npmjs.org/package/ngtemplate-loader is useful for templates
-
-_module.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+_module.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
     $routeProvider
         .when('/',
         {
             controller: 'MainController',
-            template: resourceRequire('raw!./main/main-controller.html')
+            template: require('raw!./main/main-controller.html')
         })
         .when('/studio',
         {
-            template: resourceRequire('raw!./studio/studio-controller.html'),
+            template: require('raw!./studio/studio-controller.html'),
             controller: 'StudioController'
         });
 
