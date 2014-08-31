@@ -1,19 +1,21 @@
 {
-  "name": "webpak-spike",
+  "name": "webpack-spike",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^1.4.0-beta1",
     "script-loader": "^0.6.0",
-    "raw-loader": "^0.5.1"
-  },
-  "dependencies": {
-    "style-loader": "^0.7.1"
+    "raw-loader": "^0.5.1",
+    "grunt": "^0.4.5",
+    "grunt-typescript": "^0.3.8",
+    "style-loader": "^0.7.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "stylus-loader": "^0.4.0",
+    "webpack-dev-server": "^1.5.0",
+    "grunt-webpack": "^1.0.8"
   }
 }
