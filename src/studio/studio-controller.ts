@@ -1,4 +1,4 @@
-/// <reference path="../../lib.d.ts" />
+/// <reference path="../lib.d.ts" />
 
 require("style!raw!stylus!./studio-controller.styl");
 
