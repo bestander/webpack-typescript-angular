@@ -2,4 +2,4 @@ interface Window {
     angular: any
 }
 
-declare function require(string): string;
+//declare function require(string): string;
