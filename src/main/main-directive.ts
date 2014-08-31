@@ -1,4 +1,4 @@
-/// <reference path="../../lib.d.ts" />
+/// <reference path="../lib.d.ts" />
 
 export function register(_module) {
     _module.directive('mainDirective', function () {

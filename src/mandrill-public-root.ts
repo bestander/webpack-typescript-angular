@@ -1,4 +1,4 @@
-/// <reference path="../lib.d.ts" />
+/// <reference path="lib.d.ts" />
 
 import ctrl1 = require('./main/main-controller');
 import ctrl2 = require('./studio/studio-controller');
