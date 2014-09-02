@@ -6,7 +6,8 @@ import ctrl2 = require('./studio/studio-controller');
 require("script!../bower_components/angular/angular");
 require("script!../bower_components/angular-route/angular-route");
 
-var _module = window.angular.module('Booktrack.Mandrill', [
+var angular: Angular = require("angular");
+var _module = angular.module('Booktrack.Mandrill', [
     'ngRoute'
 ]);
 

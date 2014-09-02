@@ -1,5 +1,5 @@
-interface Window {
-    angular: any
+interface Angular {
+    module: any;
 }
 
-declare function require(string): string;
+declare function require(string): any;

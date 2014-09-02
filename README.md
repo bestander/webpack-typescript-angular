@@ -31,7 +31,7 @@ project/
 
 ## Compiling and running
 
-* Make sire [Grunt](http://gruntjs.com/getting-started) is installed
+* Make sure [Grunt](http://gruntjs.com/getting-started) is installed
 * Run `npm install` to install all webpack loaders
 * Run `grunt` to execute compilation and packaging
 * Open index.html from file or ad-hoc static web server

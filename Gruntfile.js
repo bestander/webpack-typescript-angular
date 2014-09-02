@@ -26,6 +26,9 @@ module.exports = function (grunt) {
                 entry: "./src/mandrill-public-root.js",
                 output: {
                     filename: "build/build.js"
+                },
+                externals: {
+                    angular: "window.angular"
                 }
             }
         }
