@@ -22,10 +22,19 @@ module.exports = function (grunt) {
             }
         },
         webpack: {
-            static: {
-                entry: "./src/mandrill-public-root.js",
+            main: {
+                entry: "./src/main-root.js",
                 output: {
-                    filename: "build/build.js"
+                    filename: "build/main.js"
+                },
+                externals: {
+                    angular: "window.angular"
+                }
+            },
+            unicorns: {
+                entry: "./src/unicorns-root.js",
+                output: {
+                    filename: "build/unicorns.js"
                 },
                 externals: {
                     angular: "window.angular"
@@ -34,5 +43,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean', 'typescript', 'webpack'])
+    grunt.registerTask('default', ['clean', 'typescript', 'webpack:main', 'webpack:unicorns'])
 };
