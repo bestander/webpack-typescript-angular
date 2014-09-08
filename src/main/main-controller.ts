@@ -1,6 +1,6 @@
 /// <reference path="../lib.d.ts" />
 
-require("style!raw!stylus!./main-controller.styl");
+require("./main-controller.styl");
 import dir = require('./main-directive');
 
 
