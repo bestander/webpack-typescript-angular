@@ -2,7 +2,7 @@
 
 var webpack = require('webpack');
 var fs = require('fs');
-var util = require('util');
+var _ = require('lodash');
 
 module.exports = function (grunt) {
 
@@ -10,33 +10,28 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-webpack');
 
-    //var webpackProps = {
-    //    externals: {
-    //        angular: "window.angular"
-    //    }
-    //};
-    //main: _.extend({
-    //    output: {
-    //        filename: "build/main.js"
-    //    },
-    //    entry: "./src/main-root.js"
-    //}, webpackProps),
-    //unicorns: _.extend({
-    //    output: {
-    //        filename: "build/unicorns.js"
-    //    },
-    //    entry: "./src/unicorns-root.js"
-    //}, webpackProps)
+    var webpackProps = {
+        module: {
+            loaders: [
+                { test: /\.styl$/, loader: 'style-loader!raw!stylus-loader' },
+                { test: /\.html$/, loader: 'raw' }
+            ]
+        },
+        externals: {
+            angular: "window.angular"
+        }
+    };
 
-    function SuffixOverridePlugin() {
+    function SuffixOverridePlugin(context) {
+        this._context = context;
     }
     SuffixOverridePlugin.prototype.apply = function(compiler) {
+        var context = this._context;
         compiler.plugin("normal-module-factory", function(nmf) {
             nmf.plugin("after-resolve", function(result, callback) {
-                //console.log("AAAAA", arguments)
                 if(!result) return callback();
                 var fileExt = result.resource.split('.').pop();
-                var override = result.resource.slice(0, -fileExt.length - 1) + '-UNICORNS.' + fileExt;
+                var override = result.resource.slice(0, -fileExt.length - 1) + '-' + context + '.' + fileExt;
                 if(fs.existsSync(override)){
                     result.resource = override;
                 }
@@ -63,30 +58,27 @@ module.exports = function (grunt) {
             }
         },
         webpack: {
-            all: {
-                entry: {
-                    main: "./src/main-root.js",
-                    unicorns: "./src/unicorns-root.js"
-                },
-                externals: {
-                    angular: "window.angular"
-                },
-                module: {
-                    loaders: [
-                        { test: /\.styl$/, loader: 'style-loader!raw!stylus-loader' }
-                    ]
-                },
+            main: _.extend({
                 output: {
-                    path: 'build',
-                    filename: '[name].js' // Template based on keys in entry above
+                    filename: "build/main.js"
                 },
+                entry: "./src/main-root.js",
                 plugins: [
-                    new webpack.optimize.CommonsChunkPlugin('common.js'), // webpack will extract common pieces
-                    new SuffixOverridePlugin()
+                    new SuffixOverridePlugin('main')
                 ]
-            }
+            }, webpackProps),
+            unicorns: _.extend({
+                output: {
+                    filename: "build/unicorns.js"
+                },
+                entry: "./src/unicorns-root.js",
+                plugins: [
+                    new SuffixOverridePlugin('unicorns')
+                ]
+
+            }, webpackProps)
         }
     });
 
-    grunt.registerTask('default', ['clean', 'typescript', 'webpack'])
+    grunt.registerTask('default', ['clean', 'typescript', 'webpack:main', 'webpack:unicorns'])
 };

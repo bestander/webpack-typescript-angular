@@ -22,11 +22,11 @@ _module.config(['$routeProvider', '$locationProvider', function ($routeProvider)
         .when('/',
         {
             controller: 'MainController',
-            template: require('raw!./main/main-controller.html')
+            template: require('./main/main-controller.html')
         })
         .when('/dragons',
         {
-            template: require('raw!./dragons/dragon-controller.html'),
+            template: require('./dragons/dragon-controller.html'),
             controller: 'DragonController'
         });
 

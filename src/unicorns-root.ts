@@ -21,7 +21,7 @@ _module.config(['$routeProvider', '$locationProvider', function ($routeProvider)
         .when('/',
         {
             controller: 'UnicornsController',
-            template: require('raw!./unicorns/unicorns-controller.html')
+            template: require('./unicorns/unicorns-controller.html')
         })
 
 
