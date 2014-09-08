@@ -3,6 +3,8 @@
 require("script!../bower_components/angular/angular");
 require("script!../bower_components/angular-route/angular-route");
 
+require("./common/common.styl");
+
 
 import ctrl1 = require('./unicorns/unicorns-controller');
 
