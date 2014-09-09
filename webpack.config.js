@@ -1,5 +1,6 @@
 var path = require('path');
 var SuffixOverridePlugin = require('./suffix-override-plugin');
+var nib = require('nib');
 
 module.exports = {
     module: {
@@ -7,6 +8,9 @@ module.exports = {
             {test: /\.styl$/, loader: 'style-loader!raw!stylus-loader'},
             {test: /\.html$/, loader: 'raw'}
         ]
+    },
+    stylus: {
+        use: [nib()]
     },
     externals: {
         angular: "window.angular"

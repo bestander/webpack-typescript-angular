@@ -17,6 +17,7 @@
     "stylus-loader": "^0.4.0",
     "webpack-dev-server": "^1.6.4",
     "grunt-webpack": "^1.0.8",
-    "grunt-concurrent": "^1.0.0"
+    "grunt-concurrent": "^1.0.0",
+    "nib": "^1.0.3"
   }
 }
