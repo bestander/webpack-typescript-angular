@@ -3,6 +3,8 @@
 var webpack = require('webpack');
 var _ = require('lodash');
 var webpackConfig = require("./webpack.config.js");
+var SuffixOverridePlugin = require('./suffix-override-plugin');
+
 
 module.exports = function (grunt) {
 
@@ -47,13 +49,29 @@ module.exports = function (grunt) {
         webpack: {
             options: webpackConfig,
             main: {
+                entry: "./src/main-root.js",
+                plugins: [
+                    new SuffixOverridePlugin('main')
+                ],
+                output: {
+                    filename: "main.js"
+                }
 
+            },
+            unicorns: {
+                entry: "./src/unicorns-root.js",
+                plugins: [
+                    new SuffixOverridePlugin('unicorns')
+                ],
+                output: {
+                    filename: "unicorns.js"
+                }
             }
         },
         "webpack-dev-server": {
             options: {
                 webpack: webpackConfig,
-                publicPath: "/" + webpackConfig.output.publicPath,
+                publicPath: "/" + webpackConfig.output.publicPath
             },
             start: {
                 keepAlive: true,
@@ -73,7 +91,7 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', ['clean', 'typescript:build', 'webpack:main']);
+    grunt.registerTask('default', ['clean', 'typescript:build', 'webpack:main', 'webpack:unicorns']);
     // see https://github.com/webpack/webpack-with-common-libs/blob/master/Gruntfile.js for other build options
     grunt.registerTask('dev', ['clean', 'typescript:build', 'concurrent:dev']);
 
