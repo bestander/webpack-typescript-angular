@@ -8,7 +8,7 @@ require("./common/common.styl");
 import ctrl1 = require('./main/main-controller');
 import ctrl2 = require('./dragons/dragon-controller');
 
-var angular: Angular = require("angular");
+var angular: ng.IAngularStatic = require("angular");
 var _module = angular.module('theOnlyModule', [
     'ngRoute'
 ]);

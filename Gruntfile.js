@@ -1,7 +1,6 @@
 "use strict";
 
 var webpack = require('webpack');
-var _ = require('lodash');
 var webpackConfig = require("./webpack.config.js");
 var SuffixOverridePlugin = require('./suffix-override-plugin');
 
@@ -12,6 +11,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.initConfig({
         clean: {
@@ -66,6 +66,12 @@ module.exports = function (grunt) {
                 output: {
                     filename: "unicorns.js"
                 }
+            },
+            tests: {
+                entry: "./src/main/tests/main-directive.spec.js",
+                output: {
+                    filename: "tests.js"
+                }
             }
         },
         "webpack-dev-server": {
@@ -87,12 +93,21 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         }
 
     });
 
-    grunt.registerTask('default', ['clean', 'typescript:build', 'webpack:main', 'webpack:unicorns']);
     // see https://github.com/webpack/webpack-with-common-libs/blob/master/Gruntfile.js for other build options
+
+    grunt.registerTask('default', ['clean', 'typescript:build', 'webpack:main', 'webpack:unicorns']);
+
     grunt.registerTask('dev', ['clean', 'typescript:build', 'concurrent:dev']);
+
+    grunt.registerTask('test', ['clean', 'typescript:build', 'webpack:tests', 'karma']);
 
 };
