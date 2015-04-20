@@ -1,8 +1,12 @@
 # Angular + Typescript + Stylus application packaged with webpack example
 
+# Outdated
+This repo was created before TypeScript 1.4 and typescript [loaders](http://webpack.github.io/docs/list-of-loaders.html) were possible (4 already in 04.2015). Please use them and treat this repo as an example how things can be done.
+
 Just a proof of concept how [webpack](http://webpack.github.io) handles Angular applications written in TypeScript.
 
 See [Blog post](https://medium.com/@bestander_nz/c5127b55ec86) with the explanation what it is about.
+
 
 ## Structure
 
